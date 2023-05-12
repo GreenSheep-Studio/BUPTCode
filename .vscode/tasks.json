@@ -1,0 +1,57 @@
+{
+  "options": {
+    "env": {
+      "Path": "F:\\Dev-Cpp\\TDM-GCC-64\\bin;${env:Path}"
+    }
+  },
+  "tasks": [
+    {
+      "args": [
+        "-g",
+        "${file}",
+        "-o",
+        "${workspaceFolder}\\coins\\${fileBasenameNoExtension}.exe",
+        "-fexec-charset=GBK",
+        "-std=c++17"
+      ],
+      "command": "F:\\Dev-Cpp\\TDM-GCC-64\\bin\\g++.exe",
+      "group": {
+        "isDefault": true,
+        "kind": "build"
+      },
+      "label": "single file build",
+      "presentation": {
+        "clear": true,
+        "echo": false,
+        "focus": false,
+        "panel": "shared",
+        "reveal": "silent",
+        "showReuseMessage": false
+      },
+      "problemMatcher": "$gcc",
+      "type": "process"
+    },
+    {
+      "args": [],
+      "command": "${workspaceFolder}\\coins\\${fileBasenameNoExtension}.exe",
+      "dependsOn": "single file build",
+      "label": "run and pause",
+      "options": {
+        "env": {
+          "Path": "F:\\Dev-Cpp\\TDM-GCC-64\\bin;${env:Path}"
+        }
+      },
+      "presentation": {
+        "clear": true,
+        "echo": false,
+        "focus": false,
+        "panel": "shared",
+        "reveal": "never",
+        "showReuseMessage": false
+      },
+      "problemMatcher": [],
+      "type": "pause-console"
+    }
+  ],
+  "version": "2.0.0"
+}

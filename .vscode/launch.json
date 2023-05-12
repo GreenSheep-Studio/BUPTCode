@@ -1,0 +1,23 @@
+{
+  "configurations": [
+    {
+      "MIMode": "gdb",
+      "args": [],
+      "cwd": "${fileDirname}",
+      "env": {
+        "PATH": "F:\\Dev-Cpp\\TDM-GCC-64\\bin;${env:PATH}"
+      },
+      "environment": [],
+      "externalConsole": true,
+      "internalConsosleOptions": "neverOpen",
+      "miDebuggerPath": "F:\\Dev-Cpp\\TDM-GCC-64\\bin\\gdb.exe",
+      "name": "Single C++ file debugging",
+      "preLaunchTask": "single file build",
+      "program": "${workspaceFolder}\\coins\\${fileBasenameNoExtension}.exe",
+      "request": "launch",
+      "stopAtEntry": false,
+      "type": "cppdbg"
+    }
+  ],
+  "version": "0.2.0"
+}
