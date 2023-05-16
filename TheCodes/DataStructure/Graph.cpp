@@ -122,5 +122,4 @@ int main ()
     system("PAUSE");
     return 0;
 }
-
-// 很显然，尝试成功了！
+//好像成功了
