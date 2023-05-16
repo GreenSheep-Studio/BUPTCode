@@ -2,26 +2,30 @@
 #define MAXSIZE 100
 using namespace std;
 
-int Visited[MAXSIZE];
-struct EdgeNode{
+bool Visited[MAXSIZE]; //全局变量 用于存储遍历状态 0为未遍历 1为已遍历
+
+// 边节点
+struct EdgeNode{ 
     int edge; 
     int weight; 
     EdgeNode * next;
 };
 
-struct VexNode{
+// 顶点节点
+struct VexNode{ 
     int node; 
     int date;  
     EdgeNode * first;  
 };
 
- 
+// 邻接表 
 struct GAdjListNode{
     VexNode AdjList[MAXSIZE];
     int vexnum;
     int edgenum;
 };
 
+// 构建邻接表
 void Creat(GAdjListNode &G){
     int i, j, k, w;
     EdgeNode *p = NULL;
@@ -50,7 +54,7 @@ void Creat(GAdjListNode &G){
     }
 }
 
-// 
+// 打印邻接表
 void Print(GAdjListNode &G){
     EdgeNode * p;
     for (int i = 0; i < G.vexnum; i++){
@@ -62,7 +66,7 @@ void Print(GAdjListNode &G){
     }
 }
 
-
+// 深度优先遍历
 void DFS(GAdjListNode &G, int v){
     int j;
     cout << G.AdjList[v].node << " "; 
@@ -75,6 +79,7 @@ void DFS(GAdjListNode &G, int v){
     }
 }
 
+// 广度优先遍历
 void BFS(GAdjListNode &G, int v){
     int front;
     int rear;
