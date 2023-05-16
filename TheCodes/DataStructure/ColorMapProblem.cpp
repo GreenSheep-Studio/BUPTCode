@@ -2,9 +2,6 @@
 #define MAXSIZE 100
 using namespace std;
 
-
-
-//第三次//
 bool Visited[MAXSIZE];// 全局变量，用于表示涂色状态（0代表上色，1代表已经上色过）
 int ColorMax = 0;// 全局变量，表示使用的颜色数
 
