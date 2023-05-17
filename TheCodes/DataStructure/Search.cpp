@@ -16,7 +16,18 @@ int OrderSearch(int arr[], int n, int key) {
     for (int i = 0; i < n; i++){
         if (arr[i] == key) return i;
     }
-    return -1;
+    return -2;
+}
+
+int BinarySearch(int arr[], int key, int left, int right) {
+    int middle;
+    if (left > right) return -2;
+    else {
+        middle = (left + right) / 2;
+        if (arr[middle] == key) return middle;
+        else if (arr[middle] > key) return BinarySearch (arr, key, left, middle - 1);
+        else if (arr[middle] < key) return BinarySearch (arr, key, middle + 1, right);
+    }
 }
 
 int main ()
@@ -24,7 +35,8 @@ int main ()
     int x;
     cin >> x;
     SortAndShow(arr, 10);
-    cout << OrderSearch(arr, 10, x) << endl;
+    cout << OrderSearch(arr, 10, x) + 1 << endl;
+    cout << BinarySearch(arr, x, 0, 9) + 1 <<endl;
     system("PAUSE");
     return 0;
 }
