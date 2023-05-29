@@ -43,14 +43,21 @@ void PreShow(TreeNode * Tree) {
     PreShow(Tree ->r_ch);
 }
 
-int Search(TreeNode * Tree, int key) {
-    
+TreeNode *  Search(TreeNode * Tree, int key) {
+    if (Tree == NULL) return NULL;
+    else if (Tree ->date == key) return Tree;
+    else if (Tree ->date < key) return Search(Tree ->r_ch, key);
+    else if (Tree ->date > key) return Search(Tree ->l_ch, key);
 }
 
+/*TreeNode * Delete(TrerNode *Tree, int key) {
+    
+}
+*/
 int main ()
 {
-    TreeNode * BitsTree = new TreeNode;
-    int arr[5] = {1, 8, 6, 5, 3};
+    TreeNode * BitsTree;
+    int arr[5] = {3, 5, 8, 1, 6};
     BitsTree = NULL;
     for (int i = 0; i < 5; i++){
         BitsTree = InsDate(BitsTree, arr[i]);
@@ -61,7 +68,7 @@ int main ()
     cout << "MidShow" << endl;
     MidShow (BitsTree);
     cout << endl;
-    cout << Search (BitsTree, 6, 1) << endl;
+    cout << (Search (BitsTree, 6)) ->date << endl;
     system("PAUSE");
     return 0;
 }
