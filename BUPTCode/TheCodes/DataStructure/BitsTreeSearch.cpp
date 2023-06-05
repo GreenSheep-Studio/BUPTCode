@@ -96,7 +96,7 @@ bool DeleteNode(TreeNode * Tree, int key){
 int main ()
 {
     TreeNode * BitsTree;
-    int arr[5] = {3, 5, 8, 1, 6};
+    int arr[5] = {3, 5, 8, 1,0 6};
     BitsTree = NULL;
     for (int i = 0; i < 5; i++){
         BitsTree = InsDate(BitsTree, arr[i]);
