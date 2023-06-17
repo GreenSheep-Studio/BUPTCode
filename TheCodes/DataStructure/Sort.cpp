@@ -41,25 +41,26 @@ void Insert(int a[], int n) {
     } 
 }
 
-void Quick(int a[], int n, int L, int R) {
+void Quick(int a[], int L, int R) {
     int p;
     p = L;
+    int i, j;
+    i = L;
+    j = R;
     int key = a[p];
-    while (L != R) {
-        if (a[R] < a[p]){ 
-            a[L] = a[R];
-            L++;
+    while (i < j) {
+        if (a[j] < a[p]){ 
+            a[i] = a[j];
+            i++;
         }
-        else if (a[R] > a[p]) R--;
-        if (a[L] > a[p]) {
-            a[R] = a[L];
-            R--;
+        if (a[i] > a[p]) {
+            a[j] = a[i];
+            j--;
         }
-        else if (a[L] < a[p]) L++;
     }
-    a[L] = key;
-    Quick(a, n, 0, L);
-    Quick(a, n, L, n - 1);
+    a[i] = key;
+    Quick(a, L, j - 1);
+    Quick(a, i + 1, R);
 }
 
 int compare(const void *a, const void *b){
