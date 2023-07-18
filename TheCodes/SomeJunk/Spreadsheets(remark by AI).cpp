@@ -13,21 +13,19 @@ int ExpN(int x, int n){
     return Ep;
 }
 
-
-void Transale(string Poss){
+void Translate(string Poss){
     bool Sign = 0;
     if(Poss[0] == 'R'){
         for(int i = 1; Poss[i]; i++){
-            if (Poss[i] == 'C' && Poss[i - 1] >= '0' && Poss[i - 1] <= '9'){ 
+            if (Poss[i] == 'C' && Poss[i - 1] >= '0' && Poss[i - 1] <= '9'){
                 Sign = 1;
                 break;
             }
         }
-    } 
+    }
 
-    
     if (Sign == 0) {
-        int Y[1000000] = {0};
+        int Y[10000] = {0};
         int l = 0;
         int y = 0;
         int x = 0;
@@ -49,19 +47,17 @@ void Transale(string Poss){
         }
         cout << y;
     }
-
-
     else if (Sign == 1){
         int X1 = 0;
-        char y1[1000000] = {0};
+        char y1[10000] = {0};
         int Y1 = 0;
         int k = 0;
         int s = 0;
-        char pos[1000000]={0};
-        for (int i = 0; Poss[i]; i++){
+        char pos[10000] = {0};
+        int l = Poss.length(); // Use the length function instead of strlen for string objects
+        for (int i = 0; i < l; i++){
             pos[i] = Poss[i];
         }
-        int l = strlen(pos);
         for (int i = l - 1; pos[i] != 'C'; i--){ // This is the after number
             Y1 += (pos[i] - '0') * ExpN(10, k);
             k++;
@@ -72,36 +68,35 @@ void Transale(string Poss){
             X1 += (pos[i] - '0') * ExpN(10, k);
             k++;
         }
-        while(Y1){ // This is the letter number
+        while (Y1){ // This is the letter number
             if (Y1 % 26 > 0) {
                 y1[s] = (Y1 % 26) - 1 + 'A';
                 Y1 = Y1 / 26;
-            } 
+            }
             else if (Y1 % 26 == 0){
                  y1[s] = 'Z';
                  Y1 = (Y1 / 26) - 1;
             }
             s++;
         }
-        for (int  i = s - 1; i >= 0; i--){
+        for (int i = s - 1; i >= 0; i--){
             cout << y1[i];
         }
         cout << X1; // This is the same number
     }
 }
 
-int main ()
-{
+int main(){
     int n;
-    Position Pos[1000000];
+    Position Pos[10000];
     cin >> n;
-    for (int  i = 0; i < n; i++){
+    for (int i = 0; i < n; i++){
         cin >> Pos[i].Pos;
     }
     for (int i = 0; i < n; i++){
-        Transale(Pos[i].Pos);
+        Translate(Pos[i].Pos);
         cout << endl;
     }
-    system ("PAUSE");
+    system("PAUSE");
     return 0;
 }
