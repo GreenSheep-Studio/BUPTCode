@@ -15,6 +15,7 @@
       "preLaunchTask": "single file build",
       "program": "${workspaceFolder}\\coins\\${fileBasenameNoExtension}.exe",
       "request": "launch",
+      "console": "externalTerminal",
       "stopAtEntry": false,
       "type": "cppdbg"
     }
