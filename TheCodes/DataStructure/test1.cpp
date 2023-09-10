@@ -1,14 +1,17 @@
 #include <iostream>
+#include <stack>
 using namespace std;
-template <class T>
-T Inc(T n)
+struct T
 {
-    return 1 + n;
-}
+    int a;
+    int b;
+};
+
+stack <T> S;
+
 int main()
 {
-    cout << Inc<double>(4) / 2;
-    cout << Inc<int>(4) / 2;
+    S.push()
     system("PAUSE");
     return 0;
 }
