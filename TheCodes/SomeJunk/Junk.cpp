@@ -1,25 +1,42 @@
 #include <bits/stdc++.h>
 using namespace std;
-int Print()
-{int i=1;
-int x=(int)sqrt(n);
-while (++i<=x)
-{
-    if (n)
-    {
-        /* code */
-    }
-    
-}
-}
-void sum(int a[])
-{a[0] = ++a[1];}
 int main()
 {
-    
-    int a[10] = {10,9,8,7,6,5,4,3};
-    sum(&a[2]);
-    cout << a[2] <<endl;
+	int n;
+	cin >>n;
+	//cout << "您输入的是" << n << "阶行列式" << endl;
+	int a[3][3];
+	int b[4];
+
+	for (int i = 0; i < n; i++)
+	{
+		for (int j = 0; j < n; j++)
+		{
+			cin >> a[i][j];
+		}
+	}
+
+	for (int i = 0; i < n-1; i++)
+	{
+		for (int y = 1; y < n-i; y++)
+		{
+			for (int x = i, b = a[i + y][i]; x < n; x++)
+			{
+				a[i + y][x]= (a[i + y][x] * a[i][i])- (a[i][x] * b);
+			}
+		}
+		b[i] = pow(a[i][i], n-1-i);
+	}
+	int A=1;
+	for (int i = 0; i < n; i++)
+	{
+		A *= a[i][i];
+	}
+	for (int i = 0; i < n-1; i++)
+	{
+		A /= b[i];
+	}
+	cout << A;
     system("PAUSE");
     return 0;
 }

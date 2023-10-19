@@ -25,7 +25,7 @@ struct GAdjListNode{
     int EdgeNum;// 边数
 };
 
-struct ColorSize{
+struct ColorSize{ // 颜色组
     string Colors;
 };
 
@@ -39,20 +39,20 @@ void Creat(GAdjListNode &G){
     cout << "输入节点序号";
     for (k = 0; k < G.VexNum; k++){
         cin >> G.AdjList[k].node; // 输入节点信息
-        G.AdjList[k].first = NULL;
-        G.AdjList[k].date = 0;
+        G.AdjList[k].first = NULL;// 头节点设为空
+        G.AdjList[k].date = 0;// 初始颜色为 0
     }
 
     cout << "输入各条边两端的节点序号i、j(i, j与j, i为同一条边, 无需重复注入): ";
     for (k = 0; k < G.EdgeNum; k++){
         cin >> i >> j;
         // 构建无向图
-        p = new EdgeNode;
-        p ->edge = j;
-        p ->next = G.AdjList[i].first;
+        p = new EdgeNode;// 新建节点
+        p ->edge = j;// 表示该节点与 j节点有连接
+        p ->next = G.AdjList[i].first;// 尾接法建立链表
         G.AdjList[i].first = p;
         q = new EdgeNode;
-        q ->edge = i;
+        q ->edge = i;// 无向图，故同理
         q ->next = G.AdjList[j].first;
         G.AdjList[j].first = q;
     }
@@ -100,7 +100,7 @@ void DrawColor(GAdjListNode &G, int v){
 
 // 输出涂色结果
 void ColorResult(GAdjListNode &G){
-    ColorSize x[4] = {"Red", "Yellow", "Blue", "Green"};
+    ColorSize x[4] = {"Red", "Yellow", "Blue", "Green"};// 默认四色定理是正确的，故直接定义四种颜色
     for (int i = 0; i < G.VexNum; i++)
         cout << "节点" << G.AdjList[i].node << "上的颜色为" << x[G.AdjList[i].date - 1].Colors << endl; 
 }
