@@ -1,13 +1,13 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-struct TreeNode{
+struct TreeNode {
     int date;
     TreeNode * l_ch;
     TreeNode * r_ch;
 };
 
-TreeNode * CreatNode (int n){
+TreeNode * CreatNode (int n) {
     TreeNode *p = new TreeNode;
     p ->date = n;
     p ->l_ch = NULL;
@@ -68,7 +68,7 @@ bool Delete(TreeNode * p) {
     else if (p ->r_ch != NULL && p ->l_ch != NULL) {
         q = p;
         s = p ->r_ch;
-        while (s ->r_ch != NULL){
+        while (s ->r_ch != NULL) {
             q = s;
             s = s ->l_ch;
             if(s == NULL) break;
@@ -81,7 +81,7 @@ bool Delete(TreeNode * p) {
     return true;
 }
 
-bool DeleteNode(TreeNode * Tree, int key){
+bool DeleteNode(TreeNode * Tree, int key) {
     if (Tree == NULL) return false;
     else{
         if (Tree ->date == key) 
@@ -98,7 +98,7 @@ int main ()
     TreeNode * BitsTree;
     int arr[5] = {3, 5, 8, 1, 6};
     BitsTree = NULL;
-    for (int i = 0; i < 5; i++){
+    for (int i = 0; i < 5; i++) {
         BitsTree = InsDate(BitsTree, arr[i]);
     }
     cout << "PreShow" << endl;

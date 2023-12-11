@@ -26,7 +26,7 @@ struct GAdjListNode{
 };
 
 // 构建邻接表
-void Creat(GAdjListNode &G){
+void Create(GAdjListNode &G){
     int i, j, k, w;
     EdgeNode *p = NULL;
     EdgeNode *q = NULL;
@@ -109,7 +109,7 @@ void BFS(GAdjListNode &G, int v){
 int main ()
 {
     GAdjListNode G;
-    Creat(G);
+    Create(G);
     Print(G);
     for (int i = 0; i < G.vexnum; i++)
         Visited[i] = 0;

@@ -1,11 +1,15 @@
-#include <stdio.h>
-#include <stdlib.h>
-
-int main(void)
+#include <bits/stdc++.h>
+using namespace std;
+int main ()
 {
-    int a = 50;
-    printf("%d", a);
-    
-    system("PAUSE");
+    int a[100] = {0};
+    int n;
+    cin >> n;
+    for (int i = 0; i < n; i++) cin >> a[i];
+    sort(a, a + n);
+    n = unique(a, a + n) - a;
+    cout << n << endl;
+    for (int i = 0; i < n; i++) cout << a[i] << " ";
+    system("pause");
     return 0;
 }
